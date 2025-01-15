@@ -1,11 +1,7 @@
 "use client";
 
 import DropDown, { LanguageType } from "@/components/DropDown";
-import Github from "@/components/icons/GitHub";
-import Twitter from "@/components/icons/Twitter";
-import Subscribe from "@/components/subscribe/Subscribe";
 import { siteConfig } from "@/config/site";
-import { formatNumber } from "@/lib/data";
 import { UserInfo } from "@/types/user";
 import { useCompletion } from "ai/react";
 import dayjs from "dayjs";
@@ -35,7 +31,7 @@ export default function HomePage({
   const [remainingCredits, setRemainingCredits] = useState(0);
   const [boostPackRemainingCredits, setBoostPackRemainingCredits] = useState(0);
   const [content, setContent] = useState("");
-  const [language, setLanguage] = useState<LanguageType>("English");
+  const [language, setLanguage] = useState<LanguageType>("Male");
   const answerRef = useRef<null | HTMLDivElement>(null);
 
   const scrollToAnswer = () => {
@@ -51,14 +47,14 @@ export default function HomePage({
       prompt: content,
     },
     headers: {
-      token: user?.accessToken || "",
+      token: "user?.accessToken" || "",
     },
     onResponse: (res) => {
       if (res.status === 429) {
         toast.error("You are being rate limited. Please try again later.");
         return;
       }
-      setCurrentUses((pre) => pre + 1);
+      // setCurrentUses((pre) => pre + 1);
       scrollToAnswer();
     },
   });
@@ -88,54 +84,29 @@ export default function HomePage({
 
   return (
     <>
-      <div
-        className="mx-auto mt-6 flex items-center justify-center space-x-5"
-        style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
-      >
-        <a
-          href="https://x.com/weijunext/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-gray-600 shadow-md transition-colors hover:bg-blue-200 mb-5"
-        >
-          <Twitter className="h-5 w-5" />
-          <p className="text-sm font-semibold">Follow Me</p>
-        </a>
-        <a
-          href="https://github.com/weijunext/smart-excel-ai"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-gray-600 shadow-md transition-colors hover:bg-gray-100 mb-5"
-        >
-          <Github className="h-5 w-5" />
-          <p className="text-sm font-semibold">Star on GitHub</p>
-        </a>
-      </div>
-      <h1 className="sm:text-6xl text-4xl max-w-[708px] font-bold text-slate-900">
+
+      <h1 className="sm:text-6xl text-4xl  font-bold text-slate-900">
         {siteConfig.description}
       </h1>
 
-      <p className="text-slate-500 mt-5">
-        {formatNumber({ value: Number(usage) + currentUses })} Excel formulas
-        generated so far.
-      </p>
-      <form className="max-w-xl w-full" onSubmit={onSubmit}>
+      <form className="max-w-xl w-full mt-24" onSubmit={onSubmit}>
         <div className="flex mt-10 items-center space-x-3">
           <Image src="/1-black.png" width={30} height={30} alt="1 icon" />
           <p className="text-left font-medium">
-            Describe what Excel formulas you would like.
+            Your english name is:
           </p>
         </div>
+
         <textarea
           value={content}
           onChange={handleInputChange}
-          rows={4}
+          rows={1}
           className="w-full rounded-md bg-white border border-gray-300 shadow-sm focus:border-black focus:ring-black my-5 px-2 py-1"
           placeholder={"e.g. Identify gender based on ID card."}
         />
         <div className="flex mb-5 items-center space-x-3">
           <Image src="/2-black.png" width={30} height={30} alt="1 icon" />
-          <p className="text-left font-medium">Select your language.</p>
+          <p className="text-left font-medium">Select your gender:</p>
         </div>
         <div className="block">
           <DropDown
@@ -214,9 +185,13 @@ export default function HomePage({
           </>
         ) : (
           <Link href="/login">
-            <button className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full">
-              <span>Available after logging in &rarr;</span>
+            <button
+              className="bg-black rounded-xl text-white font-medium px-4 py-2 hover:bg-black/80 w-full mt-5"
+              type="submit">
+              <span>Generate &rarr;</span>
             </button>
+
+
           </Link>
         )}
       </form>
@@ -255,7 +230,6 @@ export default function HomePage({
       </output>
 
       {/* subscribe */}
-      <Subscribe user={user} />
     </>
   );
 }

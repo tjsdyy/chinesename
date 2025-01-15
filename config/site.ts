@@ -1,29 +1,29 @@
 import { SiteConfig } from "@/types/siteConfig"
 
 const baseSiteConfig = {
-  name: "Smart Excel",
+  name: "Chinese Name",
   description:
-    "Generate the Excel formulas in seconds.",
-  url: "https://smartexcel.cc",
+    "Generate Chinese Name for RedNote.",
+  url: "https://chinesename.my",
   ogImage: "https://smartexcel.cc/og.jpg",
-  metadataBase: new URL("https://www.smartexcel.cc"),
-  keywords: ["SmartExcel", "ChatGPT", "Excel formulas", "Excel AI", "文心一言", "智谱"],
+  metadataBase: new URL("http://chinesename.my"),
+  keywords: ["ChineseName", "ChatGPT", "Chinese Name", "xiaohongshu", "red note", "xhs"],
   authors: [
     {
-      name: "weijunext",
-      url: "https://weijunext.com",
+      name: "corlycao",
+      url: "https://corlycao.com",
     }
   ],
-  creator: '@weijunext',
+  creator: 'xhs funs',
   themeColor: '#fff',
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: "/site.ico",
+    shortcut: "/site.png",
+    apple: "/site.png",
   },
   links: {
-    twitter: "https://x.com/weijunext",
-    github: "https://github.com/weijunext/smartexcel",
+    twitter: "https://x.com/corlycao",
+    github: "https://github.com/corlycao",
   },
 }
 
