@@ -102,7 +102,7 @@ export default function HomePage({
           onChange={handleInputChange}
           rows={1}
           className="w-full rounded-md bg-white border border-gray-300 shadow-sm focus:border-black focus:ring-black my-5 px-2 py-1"
-          placeholder={"e.g. Identify gender based on ID card."}
+          placeholder={"e.g. Mike"}
         />
         <div className="flex mb-5 items-center space-x-3">
           <Image src="/2-black.png" width={30} height={30} alt="1 icon" />
