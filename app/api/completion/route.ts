@@ -54,10 +54,7 @@ export async function POST(req: NextRequest) {
     messages: [
       {
         role: 'user',
-        content: `${process.env.PREFIX_PROMPT}${prompt}. ${process.env.SUFFIX_PROMPT} 
-        ${process.env.USING_CONTENT_FORMATTING} 
-        ${process.env.LANGUAGE_TIP} ${language}. 
-        ${process.env.THANK_YOU}`
+        content: `${process.env.PREFIX_PROMPT} : ${prompt},my gender is ${language}.  ${process.env.SUFFIX_PROMPT} `
       },
     ],
   });
