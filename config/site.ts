@@ -5,7 +5,7 @@ const baseSiteConfig = {
   description:
     "Generate Chinese Name for RedNote.",
   url: "https://chinesename.my",
-  ogImage: "https://smartexcel.cc/og.jpg",
+  ogImage: "https://chinesename.my/og.jpg",
   metadataBase: new URL("http://chinesename.my"),
   keywords: ["ChineseName", "ChatGPT", "Chinese Name", "xiaohongshu", "red note", "xhs"],
   authors: [

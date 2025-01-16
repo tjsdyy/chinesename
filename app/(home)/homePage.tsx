@@ -184,15 +184,11 @@ export default function HomePage({
             </button>
           </>
         ) : (
-          <Link href="/login">
-            <button
-              className="bg-black rounded-xl text-white font-medium px-4 py-2 hover:bg-black/80 w-full mt-5"
-              type="submit">
-              <span>Generate &rarr;</span>
-            </button>
-
-
-          </Link>
+          <button
+            className="bg-black rounded-xl text-white font-medium px-4 py-2 hover:bg-black/80 w-full mt-5"
+            type="submit">
+            <span>Generate &rarr;</span>
+          </button>
         )}
       </form>
       <Toaster
