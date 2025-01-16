@@ -185,7 +185,7 @@ export default function HomePage({
           </>
         ) : (
           <button
-            className="bg-black rounded-xl text-white font-medium px-4 py-2 hover:bg-black/80 w-full mt-5"
+            className="bg-[#FF0050] text-white rounded-lg  rounded-xl text-white font-medium px-4 py-2  w-full mt-5"
             type="submit">
             <span>Generate &rarr;</span>
           </button>
@@ -205,7 +205,7 @@ export default function HomePage({
                 className="sm:text-4xl text-3xl font-bold text-slate-900 mx-auto"
                 ref={answerRef}
               >
-                The formula you need
+                Your Name is：
               </h2>
             </div>
             <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto">
